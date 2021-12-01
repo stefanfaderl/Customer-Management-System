@@ -5,7 +5,7 @@ include_once 'header.php';
 <section class="contactForm">
     <form action="includes/login.inc.php" method="post">
         <h1>Log In</h1>
-        <input type="text" name="uid" placeholder="Username/Email...">
+        <input type="text" name="name" placeholder="Name/Email...">
         <input type="password" name="pwd" placeholder="Password...">
         <button type="submit" name="submit">Log In</button>
     </form>

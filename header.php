@@ -10,7 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login System</title>
+    <title>Kundenverwaltungssystem</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -21,7 +21,7 @@ session_start();
             <ul class="nav__links">
                 <li><a href="index.php">Home</a></li>
                 <?php
-                if (isset($_SESSION["useruid"])) {
+                if (isset($_SESSION["username"])) {
                     echo "<li><a href='profile.php'>Profile page</a></li>";
                     echo "<li><a id='padding' href='includes/logout.inc.php'>Log out</a></li>";
                 } else {
