@@ -1,4 +1,4 @@
-<!-- http://localhost/php2/Login%20System/index.php -->
+<!-- http://localhost/Kundenverwaltung/index.php -->
 
 <?php
 include_once 'header.php';
@@ -16,5 +16,3 @@ include_once 'header.php';
         ?>
     </section>
 </article>
-
-
