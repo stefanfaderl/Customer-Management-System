@@ -14,17 +14,18 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body> 
     <header>
         <img onclick="sendToHomescreen()" class="logo" src="img/SF-LogoAusgeschnitten.png" alt="logo">
         <nav>
             <ul class="nav__links">
-                <li><a href="index.php">Home</a></li>
                 <?php
                 if (isset($_SESSION["username"])) {
+                    echo "<li><a href='dashboard.php'>Dashboard</a></li>";
                     echo "<li><a href='profile.php'>Profile page</a></li>";
                     echo "<li><a id='padding' href='includes/logout.inc.php'>Log out</a></li>";
                 } else {
+                    echo "<li><a href='index.php'>Home</a></li>";
                     echo "<li><a href='signup.php'>Sign up</a></li>";
                     echo "<li><a id='padding' href='login.php'>Log In</a></li>";
                 }

@@ -8,8 +8,8 @@ include_once 'header.php';
     <section class="item">
         <?php
         if (isset($_SESSION["username"])) { // user muss stehen
-            echo "<p>Hello " . $_SESSION["username"] .  " :)" . " </p>";
-            echo "<p>Nice to see you!</p>";
+/*             echo "<p>Hello " . $_SESSION["username"] .  " :)" . " </p>";
+            echo "<p>Nice to see you!</p>"; */
         } else {
             echo "<p>Hello World!</p>";
         }

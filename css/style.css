@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Roboto:wght@300&display=swap');
 
 * {
     box-sizing: border-box;
@@ -206,10 +207,107 @@ input[type=submit]:hover {
 .worked {
     color: rgb(0, 201, 0);
     margin-top: 20px;
-    font-weight: bold;
     font-size: 1.4rem;
+    opacity: 0.5;
 }
 
+/* Dashboard */
+.containerDashboard {
+    display: flex;
+}
+
+.containerDashboard p span {
+    color: white;
+    margin: 10px 10px 10px 10vw;
+    /* nice  */
+    text-align: left;
+    font-weight: bold;
+    display: block;
+    font-size: 1rem;
+}
+
+.containerDashboard button {
+    background-color: rgba(204, 0, 0, 0.63);
+    width: 150px;
+    font-size: 0.9rem;
+    margin: 10px 10px 10px 0px;
+    font-weight: bold;
+}
+
+hr {
+    width: 80%;
+    margin: 0 auto;
+    color: rgba(204, 0, 0, 0.63);
+    padding: 0px;
+}
+
+.top {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.bottom {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.dashboard {
+    margin-bottom: 30px;
+}
+
+.dashboard ::-moz-placeholder {
+    font-size: 0.8rem;
+    text-align: left;
+}
+
+.dashboard input[type=text] {
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+#customers {
+    overflow: hidden;
+    overflow-x: auto;
+    margin-top: 15px;
+    border-collapse: collapse;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 1);
+    color: black;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    flex-wrap: wrap;
+}
+
+#customers td, #customers th {
+    border: 0.2px solid #ddd;
+    padding: 8px;
+}
+
+/* #customers tr:nth-child(even) {
+    background-color: #8b8b8b;
+} */
+
+/* #customers tr {
+    background-color: #8b8b8b;
+} */
+
+#customers tr td:first-child {
+    font-weight: bold;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: black;
+}
+
+/* Media querry */
 @media only screen and (max-width: 1000px) {
     .contactForm {
         display: inline-block;
@@ -220,8 +318,10 @@ input[type=submit]:hover {
         padding: 60px;
     }
 
-    .nav__links li {
+    .nav__links li a {
         padding: 0px;
+        font-size: clamp(12px, 2.8vw, 17px);
+        /* clamp(MIN, VAL, MAX) is resolved as max()(MIN, min()(VAL, MAX)), https://www.youtube.com/watch?v=-634IDSkZT4 */
     }
 
     .item {
@@ -232,6 +332,35 @@ input[type=submit]:hover {
         font-size: 2.5rem;
         font-weight: bold;
         text-transform: uppercase;
+    }
+
+    .containerDashboard p span {
+        margin: 10px 0 10px 0 !important;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    .containerDashboard {
+        text-align: center;
+        display: block;
+    }
+
+    hr {
+        display: none;
+    }
+
+    #customers {
+        display: flex;
+    }
+
+    #padding {
+        padding: 6px 10px;
+    }
+
+    header {
+        display: block;
+        background-color: #0A0A0A;
+        margin-bottom: 35px;
     }
 }
 
