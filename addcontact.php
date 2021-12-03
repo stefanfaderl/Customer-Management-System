@@ -1,5 +1,7 @@
 <?php
 include_once 'header.php';
+$actualUsername = $_SESSION["username"];
+$today = date("Y-m-d H:i:s");
 ?>
 
 <article>
@@ -31,6 +33,9 @@ include_once 'header.php';
                 echo "<p class='error'>Choose a proper location!</p>";
             } else if ($_GET["error"] == "none") {
                 echo "<p class='worked'>You have created a new customer!</p>";
+                echo "<p class='worked'>Hello " . $_SESSION["username"] .  " :)" . " </p>";
+                echo "<p class='worked'>Hello " . $actualUsername .  " :)" . " </p>";
+                echo "<p class='worked'>Date: " . $today .  " :)" . " </p>";
             }
         }
         ?>

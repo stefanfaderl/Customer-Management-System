@@ -1,13 +1,14 @@
 <?php
 
 if (isset($_POST["createcontact"])) {
-    // echo "It work´s!"; 
+    echo "It work´s!";
     $nameofcontact = $_POST["nameofcontact"];
     $emailofcontact = $_POST["emailofcontact"];
     $contactName = $_POST["contactpartner"];
     $phonenumber = $_POST["phonenumber"];
     $locationName = $_POST["location"];
-    $actualUsername = $_SESSION["username"];
+    $actualUsername = $_SESSION["username"]; // möglicher fehler undefined variable $ Session
+
     $today = date("Y-m-d H:i:s");
 
     require_once 'dbh.inc.php';

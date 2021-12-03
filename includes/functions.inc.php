@@ -126,7 +126,7 @@ function loginUser($conn, $name, $pwd)
 function emptyInputCreateContact($nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName)
 { {
         $result = false;
-        if (empty($nameofcontact) || empty($emailofcontact) || empty($contactName) || empty($phonenumber) || ($locationName)) {
+        if (empty($nameofcontact) || empty($emailofcontact) || empty($contactName) || empty($phonenumber) || empty($locationName)) {
             $result = true;
         } else {
             $result = false;
@@ -207,21 +207,20 @@ function contactExists($conn, $nameofcontact, $emailofcontact)
     mysqli_stmt_close($stmt);
 }
 
-function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName, $actualUsername, $today) // das auch noch ändern //auch datum und von username created 
+function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName, $actualUsername, $today)
 { {
-
-        $sql = "INSERT INTO customers (customersName,customersEmail,customersContactName,customersPhonenumber,customersLocationName,customersCreatedBy, customersCreatedOn) VALUES (?, ?, ?, ?, ?,?,?);"; // https://www.php.net/manual/en/function.date.php
+        $sql = "INSERT INTO customers (customersName,customersEmail,customersContactName,customersPhonenumber,customersLocationName,customersCreatedBy, customersCreatedOn) VALUES (?, ?, ?, ?, ?, ?, ?);"; // https://www.php.net/manual/en/function.date.php
         $stmt = mysqli_stmt_init($conn); // statement
 
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header("location: ../signup.php?error=stmtfailed");
+            header("location: ../addcontact.php?error=stmtfailed");
             exit();
         }
 
         mysqli_stmt_bind_param($stmt, "sssssss", $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName, $actualUsername, $today);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
-        header("location: ../signup.php?error=none");
+        header("location: ../addcontact.php?error=none");
         exit();
     }
 }
