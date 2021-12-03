@@ -1,6 +1,6 @@
 <?php
 include_once 'header.php';
-$actualUsername = $_SESSION["username"];
+$actualUsername = $_SESSION['username'];
 $today = date("Y-m-d H:i:s");
 ?>
 

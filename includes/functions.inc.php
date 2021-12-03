@@ -211,7 +211,6 @@ function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $p
 { {
         $sql = "INSERT INTO customers (customersName,customersEmail,customersContactName,customersPhonenumber,customersLocationName,customersCreatedBy, customersCreatedOn) VALUES (?, ?, ?, ?, ?, ?, ?);"; // https://www.php.net/manual/en/function.date.php
         $stmt = mysqli_stmt_init($conn); // statement
-
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: ../addcontact.php?error=stmtfailed");
             exit();
