@@ -122,3 +122,106 @@ function loginUser($conn, $name, $pwd)
         exit();
     }
 }
+
+function emptyInputCreateContact($nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName)
+{ {
+        $result = false;
+        if (empty($nameofcontact) || empty($emailofcontact) || empty($contactName) || empty($phonenumber) || ($locationName)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+}
+
+function invalidNameOfContact($nameofcontact)
+{ {
+        $result = false;
+        if (!preg_match("/^[a-zA-Z0-9 ]*$/", $nameofcontact)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+}
+
+function invalidEmailOfcontact($emailofcontact)
+{
+    $result = false;
+    if (!filter_var($emailofcontact, FILTER_VALIDATE_EMAIL)) {
+        $result = true;
+    } else {
+        $result = false;
+    }
+    return $result;
+}
+
+function invalidPhoneNumber($phonenumber)
+{ {
+        $result = false;
+        if (empty($phonenumber)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+}
+
+function invalidLocation($locationName)
+{ {
+        $result = false;
+        if (empty($locationName)) {
+            $result = true;
+        } else {
+            $result = false;
+        }
+        return $result;
+    }
+}
+
+function contactExists($conn, $nameofcontact, $emailofcontact)
+{
+    $sql = "SELECT * FROM customers WHERE customersName = ? OR customersEmail = ?;";
+    $stmt = mysqli_stmt_init($conn); // statement
+
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: ../addcontact.php?error=stmtfailed");
+        exit();
+    }
+
+    mysqli_stmt_bind_param($stmt, "ss", $nameofcontact, $emailofcontact);
+    mysqli_stmt_execute($stmt);
+
+    $resultData = mysqli_stmt_get_result($stmt);
+
+    if ($row = mysqli_fetch_assoc($resultData)) {
+        return $row;
+    } else {
+        $result = false;
+        return $result;
+    }
+
+    mysqli_stmt_close($stmt);
+}
+
+function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName, $actualUsername, $today) // das auch noch ändern //auch datum und von username created 
+{ {
+
+        $sql = "INSERT INTO customers (customersName,customersEmail,customersContactName,customersPhonenumber,customersLocationName,customersCreatedBy, customersCreatedOn) VALUES (?, ?, ?, ?, ?,?,?);"; // https://www.php.net/manual/en/function.date.php
+        $stmt = mysqli_stmt_init($conn); // statement
+
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../signup.php?error=stmtfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "sssssss", $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName, $actualUsername, $today);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../signup.php?error=none");
+        exit();
+    }
+}

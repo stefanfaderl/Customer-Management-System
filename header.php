@@ -14,7 +14,7 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body> 
+<body>
     <header>
         <img onclick="sendToHomescreen()" class="logo" src="img/SF-LogoAusgeschnitten.png" alt="logo">
         <nav>

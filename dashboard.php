@@ -8,8 +8,8 @@ include_once 'header.php';
     if (isset($_SESSION["username"])) { // user muss stehen
         echo "<p><span>Hello " . $_SESSION["username"] .  " :)" . "  </span>
         <span>nice to see you here!</span></p>";
-        echo "<button type='submit' name='submit'>Add contact</button>";
-        echo "<button type='submit' name='submit'>Delete contact </button>";
+        echo "<a href='addcontact.php'><button>Add contact</button></a>";
+        echo "<a href='addcontact.php'><button>Delete button</button></a>";
     }
     ?>
 </article>
