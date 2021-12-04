@@ -13,3 +13,19 @@ for (let i = 0; i < document.links.length; i++) {
 function sendToHomescreen() {
     location.href = "index.php";
 }
+
+
+let checkboxes = document.querySelectorAll("input [type = 'checkbox']"); // doesn't work
+console.log(checkboxes);
+
+function checkAll(myCheckbox) {
+    if (myCheckbox.checked == true) {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = true;
+        });
+    } else {
+        checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false;
+        })
+    }
+}

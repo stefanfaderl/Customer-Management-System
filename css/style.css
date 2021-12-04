@@ -161,7 +161,7 @@ input[type=text], select, textarea {
 }
 
 input[type=password], select, textarea {
-    width: 80%;
+    width: 100%;
     /* Full width */
     padding: 12px;
     /* Some padding */
@@ -321,7 +321,11 @@ tr {
 }
 
 /* Media querry */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
+    h1{
+        font-size: 1.5rem;
+    }
+
     .contactForm {
         display: inline-block;
         margin-top: 60px;
@@ -329,6 +333,18 @@ tr {
         border-radius: 5px;
         background: rgba(255, 255, 255, 0.25);
         padding: 60px;
+    }
+
+    button[type="submit"] {
+        width: 100%;
+        padding: 8px;
+    }
+
+    .contactForm input[type="text"], select, textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        margin-bottom: 10px;
     }
 
     .nav__links li a {
@@ -340,7 +356,7 @@ tr {
     .item {
         background-color: black;
         border: 0.5rem dotted;
-        padding: 2.5rem;
+        padding: 1.4rem;
         border-radius: 1rem;
         font-size: 2.5rem;
         font-weight: bold;

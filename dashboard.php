@@ -9,7 +9,8 @@ include_once 'header.php';
         echo "<p><span>Hello " . $_SESSION["username"] .  " :)" . "  </span>
         <span>nice to see you here!</span></p>";
         echo "<a href='addcontact.php'><button>Add contact</button></a>";
-        echo "<a href='addcontact.php'><button>Delete button</button></a>";
+        echo "<a href='edit.php'><button>Edit contact</button></a>";
+        echo "<a><button>Delete contact</button></a>";
     }
     ?>
 </article>
@@ -20,6 +21,7 @@ include_once 'header.php';
     <div>
         <table id="customers">
             <tr>
+                <th><input type="checkbox" name="all" onchange="checkAll(this)"></th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact partner</th>
@@ -29,6 +31,7 @@ include_once 'header.php';
                 <th>Created on</th>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name1"></td>
                 <td>Alfreds Futterkiste</td>
                 <td>Maria Anders</td>
                 <td>Germany</td>
@@ -38,6 +41,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name2"></td>
                 <td>Berglunds snabbköp</td>
                 <td>Christina Berglund</td>
                 <td>Sweden</td>
@@ -47,6 +51,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name3"></td>
                 <td>Centro comercial Moctezuma</td>
                 <td>Francisco Chang</td>
                 <td>Mexico</td>
@@ -56,6 +61,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name4"></td>
                 <td>Ernst Handel</td>
                 <td>Roland Mendel</td>
                 <td>Austria</td>
@@ -65,6 +71,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name5"></td>
                 <td>Island Trading</td>
                 <td>Helen Bennett</td>
                 <td>UK</td>
@@ -74,6 +81,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name6"></td>
                 <td>Königlich Essen</td>
                 <td>Philip Cramer</td>
                 <td>Germany</td>
@@ -83,6 +91,7 @@ include_once 'header.php';
                 <td>15.12.1994</td>
             </tr>
             <tr>
+                <td><input type="checkbox" name="name7"></td>
                 <td>Laughing Bacchus Winecellars</td>
                 <td>Yoshi Tannamuri</td>
                 <td>Canada</td>

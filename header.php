@@ -22,7 +22,7 @@ session_start();
                 <?php
                 if (isset($_SESSION["username"])) {
                     echo "<li><a href='dashboard.php'>Dashboard</a></li>";
-                    echo "<li><a href='profile.php'>Profile page</a></li>";
+                    echo "<li><a href='profilepage.php'>Profile page</a></li>";
                     echo "<li><a id='padding' href='includes/logout.inc.php'>Log out</a></li>";
                 } else {
                     echo "<li><a href='index.php'>Home</a></li>";
