@@ -14,24 +14,16 @@ function sendToHomescreen() {
     location.href = "index.php";
 }
 
-let test = document.getElementsByClassName('selectAllCheckboxes');
-function selectAll() {
-    if (test.checked = true) {
-        let checkboxes = document.getElementsByClassName('inputCheckbox');
+let checkboxes = document.getElementsByClassName('inputCheckbox');
+function toggleCheckbox(e) {
+    console.log(e);
+    if (e.checked == true) {
         for (let i = 0; i < checkboxes.length; i++) {
             checkboxes[i].checked = true;
         }
-    }
-
-    if (test.checked = false) {
-        deselectAll();
-    }
-}
-
-function deselectAll() {
-    let checkboxes = document.getElementsByClassName('inputCheckbox');
-    console.log(checkboxes);
-    for (let i = 0; i < checkboxes.length; i++) {
-        checkboxes[i].checked = false;
+    } else {
+        for (let i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false;
+        }
     }
 }

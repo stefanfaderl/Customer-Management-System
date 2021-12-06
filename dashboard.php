@@ -21,7 +21,7 @@ include_once 'header.php';
     <div>
         <table id="customers">
             <tr>
-                <th><input class="selectAllCheckboxes" onclick="selectAll()" type="checkbox" name="all"></th>
+                <th><input onclick="toggleCheckbox(this)" class="selectAllCheckboxes" type="checkbox" name="all"></th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Contact partner</th>
