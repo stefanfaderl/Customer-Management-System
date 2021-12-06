@@ -31,7 +31,7 @@ function toggleCheckbox(e) {
 function deleteContact() {
     alert($('[name="checkbox"]:checked').length);  //'input:checkbox'
     if ($('[name="checkbox"]:checked').length > 0) {
-        // alert("JAWOI");
+        // alert("JAWOI"); 
         let result = confirm("Are you sure to delete selected customers?");
         if (result) {
             return true;

@@ -9,8 +9,12 @@ include_once 'header.php';
         echo "<p><span>Hello " . $_SESSION["username"] .  " :)" . "  </span>
         <span>nice to see you here!</span></p>";
         echo "<a href='addcontact.php'><button>Add contact</button></a>";
+
         echo "<a href='edit.php'><button>Edit contact</button></a>";
-        echo "<a><button type='submit' onclick='return deleteContact()'>Delete contact</button></a>";
+
+        echo "<form method = 'POST' action = 'delete.php'>";
+        echo "<a><button name='cool' type='submit' onclick='deleteContact()'>Delete contact</button></a>";
+        echo "</form>";
     }
     ?>
 </article>
