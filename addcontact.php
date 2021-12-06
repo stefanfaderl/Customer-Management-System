@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
-$actualUsername = $_SESSION['username'];
-$today = date("Y-m-d H:i:s");
+/* $actualUsername = $_SESSION['username'];
+$today = date("Y-m-d H:i:s"); */
 ?>
 
 <article>
@@ -32,10 +32,7 @@ $today = date("Y-m-d H:i:s");
             } else if ($_GET["error"] == "invalidLocation") {
                 echo "<p class='error'>Choose a proper location!</p>";
             } else if ($_GET["error"] == "none") {
-                echo "<p class='worked'>You have created a new customer!</p>";
-                echo "<p class='worked'>Hello " . $_SESSION["username"] .  " :)" . " </p>";
-                echo "<p class='worked'>Hello " . $actualUsername .  " :)" . " </p>";
-                echo "<p class='worked'>Date: " . $today .  " :)" . " </p>";
+                echo "<p class='worked'>Nice " . $_SESSION["username"] . ", you have created a new customer!</p>";
             }
         }
         ?>
@@ -43,4 +40,5 @@ $today = date("Y-m-d H:i:s");
 </article>
 
 </body>
+
 </html>

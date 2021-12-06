@@ -1,9 +1,20 @@
 <?php
 $id = $_GET['id'];
-require_once 'dbh.inc.php';
-mysqli_query($conn, "DELETE FROM customers WHERE userid='$id'");
-header("location: dashboard.php");
+require_once 'includes/dbh.inc.php';
+
+
+
+
+
+$sql = "SELECT * FROM customers;";
+$result = $conn->query($sql);
+
+//'input:checkbox'
+header("location:  dashboard.php");
 exit();
 ?>
+
+
 </body>
+
 </html>
