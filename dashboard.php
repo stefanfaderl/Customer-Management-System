@@ -17,7 +17,7 @@ include_once 'header.php';
 
 <article class="dashboard">
     <hr>
-    <input type="text" name="searchbar" placeholder="Search for a contact">
+    <input class="inputDashboard" type="text" name="searchbar" placeholder="Search for a contact">
     <div>
         <table id="customers">
             <tr>
