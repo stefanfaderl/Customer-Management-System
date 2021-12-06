@@ -50,3 +50,6 @@ $row = mysqli_fetch_array($query);
         </div>
     </article>
 </form>
+</body>
+
+</html>

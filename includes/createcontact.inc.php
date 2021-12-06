@@ -1,5 +1,6 @@
 <?php
 
+session_start(); // start session on every site where i need it 
 if (isset($_POST["createcontact"])) { // doesn't work
     echo "It work´s!";
     $nameofcontact = $_POST["nameofcontact"];

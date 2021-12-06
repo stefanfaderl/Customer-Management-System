@@ -33,3 +33,5 @@ include_once 'header.php';
         ?>
     </section>
 </article>
+</body>
+</html>

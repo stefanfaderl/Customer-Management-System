@@ -34,6 +34,3 @@ session_start();
         </nav>
         <script src="index.js"></script>
     </header>
-</body>
-
-</html>

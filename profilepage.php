@@ -9,3 +9,5 @@ include_once 'header.php';
     ?>
 
 </article>
+</body>
+</html>

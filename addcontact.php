@@ -41,3 +41,6 @@ $today = date("Y-m-d H:i:s");
         ?>
     </section>
 </article>
+
+</body>
+</html>

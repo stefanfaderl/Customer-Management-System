@@ -14,18 +14,24 @@ function sendToHomescreen() {
     location.href = "index.php";
 }
 
+let test = document.getElementsByClassName('selectAllCheckboxes');
+function selectAll() {
+    if (test.checked = true) {
+        let checkboxes = document.getElementsByClassName('inputCheckbox');
+        for (let i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = true;
+        }
+    }
 
-let checkboxes = document.querySelectorAll("input [type = 'checkbox']"); // doesn't work
-console.log(checkboxes);
+    if (test.checked = false) {
+        deselectAll();
+    }
+}
 
-function checkAll(myCheckbox) {
-    if (myCheckbox.checked == true) {
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = true;
-        });
-    } else {
-        checkboxes.forEach(function (checkbox) {
-            checkbox.checked = false;
-        })
+function deselectAll() {
+    let checkboxes = document.getElementsByClassName('inputCheckbox');
+    console.log(checkboxes);
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].checked = false;
     }
 }
