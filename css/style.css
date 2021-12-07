@@ -99,11 +99,11 @@ header {
     font-size: 1.2rem;
 }
 
-a::first-letter {
+/* a::first-letter {
     font-size: 125%;
     color: rgb(204, 0, 0);
     font-weight: bold;
-}
+} */
 
 /* BUTTON STYLE  */
 #padding {
