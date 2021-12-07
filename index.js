@@ -29,22 +29,27 @@ function toggleCheckbox(e) {
 }
 
 function deleteContact() {
-    alert($('[name="checkbox"]:checked').length);  //'input:checkbox'
-    if ($('[name="checkbox"]:checked').length > 0) {
-        // alert("JAWOI"); 
-        let result = confirm("Are you sure to delete selected customers?");
-        if (result) {
-            return true;
+    let selectedEntry = $('[name="checkbox"]:checked').data('id');
+    console.log(selectedEntry);  //'input:checkbox'
+    // if ($('[name="checkbox"]:checked').length > 0) {
+    $('#deleteForm').html('<input type="hidden" name="customerID" value="' + selectedEntry + '">');
+    // let result = confirm("Are you sure to delete selected customers?");
+    // if (result) {
+    //     console.log(this);
+    //     return true;
 
-        } else {
-            return false;
-        }
-    } else {
-        alert('Select at least 1 record to delete!');
-        return false;
-    }
+    // } else {
+    //     return false;
+    // }
+    // } else {
+
+    //     alert('Select at least 1 record to delete!');
+    //     return false;
+    // }
 }
 
-
+function hideForm(){
+    $( ".inputDashboard" ).hide();
+}
 
 
