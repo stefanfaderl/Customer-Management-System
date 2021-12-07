@@ -14,7 +14,8 @@ include_once 'header.php';
         echo "</form>";
 
         echo "<form method = 'POST' action = 'edit.php'>";
-        echo "<button id='btn-dashboard' name='button' type='submit'>Edit contact</button>";
+        echo "<div id='editForm'></div>";
+        echo "<button id='btn-dashboard' name='button' type='submit' onclick='editContact()'>Edit contact</button>";
         echo "</form>";
 
         echo "<form method = 'POST' action = 'delete.php'>";
@@ -55,7 +56,7 @@ include_once 'header.php';
         /* <td>" . $row["customersId"] . "</td> */
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
-    <td><input class='inputCheckbox' type='checkbox' name='checkbox' data-id='" . $row["customersId"] . "'></td>
+    <td><input class='inputCheckbox' type='checkbox' name='checkbox-" . $row["customersId"] . "' data-id='" . $row["customersId"] . "'></td>
     <td>" . $row["customersName"] . "</td><td>" . $row["customersEmail"] . "</td><td>" . $row["customersContactName"] . "</td><td>" . $row["customersPhonenumber"] . "</td><td>" . $row["customersLocationName"] . "</td><td>" . $row["customersCreatedBy"] . "</td><td>" . $row["customersCreatedOn"] .  "</td>
     </tr>";
         }

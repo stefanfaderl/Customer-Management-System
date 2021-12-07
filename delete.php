@@ -1,20 +1,30 @@
 <?php
 require_once 'includes/dbh.inc.php';
 session_start();
-$id = implode("", $_POST);
-$sql = "DELETE FROM customers WHERE customersId=$id;";
-$stmt = mysqli_stmt_init($conn); // statement
-if (!mysqli_stmt_prepare($stmt, $sql)) {
-    header("location: dashboard.php?error=stmtfailed");
-    exit();
+// var_dump($_POST);
+foreach ($_POST as $entry) {
+    // $entry = intval($entry);
+    var_dump($entry);
+    if($entry > 0){
+        $sql = "DELETE FROM customers WHERE customersId=$entry;";
+        if ($conn->query($sql) === TRUE) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . $conn->error;
+        }
+    }
+    // $stmt = mysqli_stmt_init($conn); // statement
+    // if (!mysqli_stmt_prepare($stmt, $sql)) {
+    //     var_dump(mysqli_stmt_prepare($stmt, $sql));
+    //     // header("location: addcontact.php?error=stmtfailed");
+    //     // exit();
+    // }
 }
+// $id = implode("", $_POST);
 
 mysqli_stmt_execute($stmt);
 mysqli_stmt_close($stmt);
 header("location: dashboard.php");
-exit();
-
-
 exit();
 
 ?>
@@ -22,6 +32,8 @@ exit();
 </body>
 
 </html>
+
+
 
 
 
