@@ -54,7 +54,7 @@ function deleteContact() {
         $('#deleteForm').append('<input type="hidden" name="customerID' + selectedEntry + '" value="' + selectedEntry + '">');
     });
 
-      //'input:checkbox'
+    //'input:checkbox'
     // if ($('[name="checkbox"]:checked').length > 0) {
     // $('#deleteForm').html('<input type="hidden" name="customerID" value="' + selectedEntry + '">');
     // let result = confirm("Are you sure to delete selected customers?");
@@ -91,9 +91,6 @@ function editContact() {
     //     return false;
     // }
 }
-
-
-
 
 function hideForm() {
     $(".inputDashboard").hide();

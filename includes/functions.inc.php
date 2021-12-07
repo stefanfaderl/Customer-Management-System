@@ -223,3 +223,21 @@ function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $p
         exit();
     }
 }
+// statment failed noch, anschauen 
+function updateCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName)
+{ {
+        $sql = "UPDATE customers SET customersName, customersEmail, customersContactName, customersPhonenumber, customersLocationName VALUES (?, ?, ?, ?, ?);";
+        //  $sql = "INSERT INTO customers (customersName,customersEmail,customersContactName,customersPhonenumber,customersLocationName,customersCreatedBy, customersCreatedOn) VALUES (?, ?, ?, ?, ?, ?, ?);"; // https://www.php.net/manual/en/function.date.php
+        $stmt = mysqli_stmt_init($conn); // statement
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: ../addcontact.php?error=stmtfailed");
+            exit();
+        }
+
+        mysqli_stmt_bind_param($stmt, "sssss", $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName);
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        header("location: ../addcontact.php?error=none");
+        exit();
+    }
+}
