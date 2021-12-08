@@ -1,9 +1,16 @@
 <?php
 include_once 'header.php';
 require_once 'includes/dbh.inc.php';
-// var_dump($_POST['customerID']); 
-$id = $_POST['customerID']; //prepair statment noch einbauen überall // customerID = z.B. 5 
+$id = $_POST['customerID'];
 $sql = "SELECT * FROM customers WHERE customersId=$id;";
+$stmt = mysqli_stmt_init($conn);
+if (!mysqli_stmt_prepare($stmt, $sql)) {
+    header("location: addcontact.php?error=stmtfailed");
+    exit();
+}
+mysqli_stmt_execute($stmt);
+mysqli_stmt_close($stmt);
+
 $nameofcontact;
 $emailofcontact;
 $contactName;
@@ -14,8 +21,6 @@ $customerId = $id;
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        // var_dump($row);
-        // echo $row['customersName'];
         $nameofcontact = $row['customersName'];
         $emailofcontact = $row['customersEmail'];;
         $contactName = $row['customersContactName'];;
@@ -38,11 +43,6 @@ if ($result->num_rows > 0) {
     </section>
     </article>";
 }
-// print_r($result);
-
-
-
-//header("location: edit.php");
 exit();
 
 ?>

@@ -12,7 +12,7 @@ if (isset($_POST["submit"])) {
         header("location: ../login.php?error=emptyinput");
         exit();
     }
-    // add errorhandlers if you want to
+    // add more errorhandlers if you want to
 
     loginUser($conn, $name, $pwd);
 } else {

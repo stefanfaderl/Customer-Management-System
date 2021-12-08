@@ -224,11 +224,8 @@ function createCustomer($conn, $nameofcontact, $emailofcontact, $contactName, $p
     }
 }
 
-// statment failed noch, anschauen 
 function updateCustomer($conn, $customerid, $nameofcontact, $emailofcontact, $contactName, $phonenumber, $locationName)
 { {
-        // echo $nameofcontact;
-
         $sql = "UPDATE customers SET customersName='$nameofcontact', customersEmail='$emailofcontact', customersContactName='$contactName' , customersPhonenumber='$phonenumber' , customersLocationName='$locationName' WHERE customersId = '$customerid' ;";
 
         $stmt = mysqli_stmt_init($conn);
@@ -237,8 +234,8 @@ function updateCustomer($conn, $customerid, $nameofcontact, $emailofcontact, $co
             exit();
         }
 
-        mysqli_stmt_execute($stmt);
-        mysqli_stmt_close($stmt); // bind param doesn`t worked
+        mysqli_stmt_execute($stmt); // bind param doesn`t worked like in createCustomer()
+        mysqli_stmt_close($stmt);
         header("location: ../dashboard.php");
 
         exit();

@@ -6,9 +6,9 @@ include_once 'header.php';
     <?php
     require_once 'includes/dbh.inc.php';
     $actualUsername = $_SESSION["username"];
-    // echo "<p><span>Hello " . $_SESSION["username"] .  " :)" . "  </span>";
+
     $sql = "SELECT customersName FROM customers WHERE customersCreatedBy = '$actualUsername';";
-    // $sql .= "SELECT customersName FROM customers WHERE customersCreatedBy = '$actualUsername';";
+
     $result = $conn->query($sql);
 
     $stmt = mysqli_stmt_init($conn);
@@ -45,7 +45,15 @@ include_once 'header.php';
 
 
 
-<!-- 
-Multiquery dont't works, or take too long time but to fix one query works fine 
 
+
+
+
+
+
+<!-- 
+Multiquery dont't works, or take too long time but to fix one query works fine
+    // echo "<p><span>Hello " . $_SESSION["username"] .  " :)" . "  </span>";
+    // $sql .= "SELECT customersName FROM customers WHERE customersCreatedBy = '$actualUsername';";
+    
  -->

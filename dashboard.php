@@ -1,5 +1,6 @@
 <?php
 include_once 'header.php';
+$actualUsername = $_SESSION["username"];
 ?>
 
 <hr class="top">
@@ -36,6 +37,14 @@ include_once 'header.php';
     require_once 'includes/dbh.inc.php';
 
     $sql = "SELECT * FROM customers ORDER BY customersId ASC;";
+    $stmt = mysqli_stmt_init($conn);
+    if (!mysqli_stmt_prepare($stmt, $sql)) {
+        header("location: addcontact.php?error=stmtfailed");
+        exit();
+    }
+    mysqli_stmt_execute($stmt);
+    mysqli_stmt_close($stmt);
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -57,10 +66,15 @@ include_once 'header.php';
         while ($row = $result->fetch_assoc()) {
             echo "<tr>
     <td><input class='inputCheckbox' type='checkbox' name='checkbox-" . $row["customersId"] . "' data-id='" . $row["customersId"] . "'></td>
-    <td>" . $row["customersName"] . "</td><td>" . $row["customersEmail"] . "</td><td>" . $row["customersContactName"] . "</td><td>" . $row["customersPhonenumber"] . "</td><td>" . $row["customersLocationName"] . "</td><td>" . $row["customersCreatedBy"] . "</td><td>" . $row["customersCreatedOn"] .  "</td>
-    </tr>";
+    <td>" . $row["customersName"] . "</td><td>" . $row["customersEmail"] . "</td><td>" . $row["customersContactName"] . "</td><td>" . $row["customersPhonenumber"] . "</td><td>" . $row["customersLocationName"] . "</td><td>" . $row["customersCreatedBy"] . "</td>
+    ";
+            if ($row["customersCreatedBy"] == $actualUsername) {
+                echo "<td>" . $row["customersCreatedOn"] . "</td>";
+            } else {
+                echo "<td>" . "" . "</td>";
+            }
         }
-        echo "</table></div>";
+        echo "</tr></table></div>";
     } else {
     ?>
         <script>
@@ -75,6 +89,11 @@ include_once 'header.php';
 </body>
 
 </html>
+
+
+
+
+
 
 
 

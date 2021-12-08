@@ -1,14 +1,18 @@
 <?php
+include_once 'header.php';
 require_once 'includes/dbh.inc.php';
-session_start();
+$actualUsername = $_SESSION["username"];
+
 foreach ($_POST as $entry) {
     if ($entry > 0) {
-        $sql = "DELETE FROM customers WHERE customersId=$entry;";
-        if ($conn->query($sql) === TRUE) {
-            echo "Record deleted successfully";
-        } else {
-            echo "Error deleting record: " . $conn->error;
+        $sql = "DELETE FROM customers WHERE customersId=$entry ;"; // AND customersCreatedBy=$actualUsername doesn't work 
+        $stmt = mysqli_stmt_init($conn);
+        if (!mysqli_stmt_prepare($stmt, $sql)) {
+            header("location: addcontact.php?error=stmtfailed"); 
+            exit();
         }
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
     }
 }
 
@@ -20,6 +24,10 @@ exit();
 </body>
 
 </html>
+
+
+
+
 
 
 

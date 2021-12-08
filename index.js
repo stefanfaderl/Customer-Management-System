@@ -1,5 +1,5 @@
-let current = 0;
 for (let i = 0; i < document.links.length; i++) {
+    let current = 0; 
     if (document.links[i].href === document.URL && document.links[i].id != 'padding') {
         current = i;
         document.links[current].id = 'current';
@@ -14,8 +14,8 @@ function sendToHomescreen() {
     location.href = "dashboard.php"; // extend 
 }
 
-let checkboxes = document.getElementsByClassName('inputCheckbox');
 function toggleCheckbox(e) {
+    let checkboxes = document.getElementsByClassName('inputCheckbox');
     console.log(e);
     if (e.checked == true) {
         for (let i = 0; i < checkboxes.length; i++) {
@@ -53,7 +53,47 @@ function deleteContact() {
         let selectedEntry = $(this).data('id');
         $('#deleteForm').append('<input type="hidden" name="customerID' + selectedEntry + '" value="' + selectedEntry + '">');
     });
+}
 
+function editContact() {
+    let selectedEntry = $('input.inputCheckbox:checked').data('id');
+    $('#editForm').html('<input type="hidden" name="customerID" value="' + selectedEntry + '">');
+
+}
+
+function hideForm() {
+    $(".inputDashboard").hide();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+deleteContact:
     //'input:checkbox'
     // if ($('[name="checkbox"]:checked').length > 0) {
     // $('#deleteForm').html('<input type="hidden" name="customerID" value="' + selectedEntry + '">');
@@ -70,13 +110,11 @@ function deleteContact() {
     //     alert('Select at least 1 record to delete!');
     //     return false;
     // }
-}
 
-function editContact() {
-    let selectedEntry = $('input.inputCheckbox:checked').data('id');
-    console.log(selectedEntry);  //'input:checkbox'
+    // console.log(selectedEntry);  //'input:checkbox'
+
+editContact:
     // if ($('[name="checkbox"]:checked').length > 0) {
-    $('#editForm').html('<input type="hidden" name="customerID" value="' + selectedEntry + '">');
     // let result = confirm("Are you sure to delete selected customers?");
     // if (result) {
     //     console.log(this);
@@ -90,8 +128,5 @@ function editContact() {
     //     alert('Select at least 1 record to delete!');
     //     return false;
     // }
-}
-
-function hideForm() {
-    $(".inputDashboard").hide();
-}
+    // console.log(selectedEntry);  //'input:checkbox'
+*/
