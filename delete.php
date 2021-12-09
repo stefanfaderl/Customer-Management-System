@@ -5,8 +5,7 @@ $actualUsername = $_SESSION["username"];
 
 foreach ($_POST as $test) {
     if ($test > 0) {
-        $sql = "SELECT customersCreatedBy FROM customers WHERE customersId=$test ;"; //customersId=$test
-        // var_dump($query);
+        $sql = "SELECT customersCreatedBy FROM customers WHERE customersId=$test ;";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("location: addcontact.php?error=stmtfailed");
@@ -35,7 +34,8 @@ foreach ($_POST as $test) {
                     }
                     header("location: dashboard.php");
                 } else {
-                    echo "<h5>Not ALLOWED to delete this customer!</h5>";
+                    echo "<h3>Not ALLOWED to delete this customer!</h3>";
+                    exit();
                     // header("location: dashboard.php");
                 }
             }
@@ -59,22 +59,7 @@ exit();
 
 
 <!-- 
-- Wenn alle ausgewählt & einer dabei ist der von einem created wurde löscht er tzd. alle
-- Einzeln funktionierts 
- -->
-
-
-
-
-
-
-
-
-
-
-
-
-<?php
 // $entry = intval($entry);
 // var_dump($entry);
-?>
+- customersId=$test 
+ -->

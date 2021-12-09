@@ -1,6 +1,7 @@
 <?php
 include_once 'header.php';
 require_once 'includes/dbh.inc.php';
+$actualUsername = $_SESSION["username"];
 $id = $_POST['customerID'];
 $sql = "SELECT * FROM customers WHERE customersId=$id;";
 $stmt = mysqli_stmt_init($conn);
@@ -21,11 +22,16 @@ $customerId = $id;
 $result =  $conn->query($sql);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        $nameofcontact = $row['customersName'];
-        $emailofcontact = $row['customersEmail'];;
-        $contactName = $row['customersContactName'];;
-        $phonenumber = $row['customersPhonenumber'];;
-        $locationName = $row['customersLocationName'];;
+        if ($row["customersCreatedBy"] == $actualUsername) {
+            $nameofcontact = $row['customersName'];
+            $emailofcontact = $row['customersEmail'];;
+            $contactName = $row['customersContactName'];;
+            $phonenumber = $row['customersPhonenumber'];;
+            $locationName = $row['customersLocationName'];;
+        } else {
+            echo "<h3>Not ALLOWED to edit this customer!</h3>";
+            exit();
+        }
     }
     echo
     "<article>
