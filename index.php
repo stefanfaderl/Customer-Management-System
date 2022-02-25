@@ -1,4 +1,5 @@
 <!-- http://localhost/Kundenverwaltung/index.php -->
+<!-- http://localhost/phpmyadmin/ -->
 
 <?php
 include_once 'header.php';
