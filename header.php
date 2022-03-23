@@ -16,7 +16,8 @@ session_start();
 
 <body>
     <header>
-        <img onclick="sendToHomescreen()" class="logo" src="img/SF-LogoAusgeschnitten.png" alt="logo">
+        <img onclick="sendToHomescreen()" class="logo" src="img/logo.png" alt="logo">
+        <!-- <div>Logo created by <a href="https://www.designevo.com/" title="Free Online Logo Maker">DesignEvo logo maker</a></div> -->
         <nav>
             <ul class="nav__links">
                 <?php

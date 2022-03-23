@@ -1,7 +1,7 @@
 <?php
 include_once 'header.php';
 ?>
-<article>
+<article class="customerContainer">
     <h1>Your created contacts:</h1>
     <?php
     require_once 'includes/dbh.inc.php';
